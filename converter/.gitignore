@@ -1,0 +1,7 @@
+#node modules
+/node_modules/
+
+.vscode/
+#assets files
+/src/uploads/
+*_experiment.js

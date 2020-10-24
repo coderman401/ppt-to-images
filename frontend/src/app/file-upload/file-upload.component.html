@@ -1,0 +1,46 @@
+<mat-card class="card">
+    <mat-card-content>
+        <mat-card-title>PPT To Image Slideshow</mat-card-title>
+        <div class="form">
+            <input name="file" type="file" hidden #fileInputRead (change)="onChangeFileInput()" />
+            <button mat-raised-button color="primary" (click)="onClickFileInputButton()">
+                <mat-icon>attach_file</mat-icon>
+                Select files
+            </button>
+        </div>
+        <div class="progress" *ngIf="progress">
+            <mat-progress-bar class="progress-bar" mode="determinate" [value]="progress"></mat-progress-bar>
+            <p> {{progress}} %</p>
+        </div>
+        <div *ngIf="state" class="filename">
+            <p>{{ name }}</p>
+            <button mat-icon-button (click)="cancelFile()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+        </div>
+        <div class="progress" *ngIf="converting">
+            <mat-progress-bar class="progress-bar" mode="query"></mat-progress-bar>
+        </div>
+        <div *ngIf="converting" class="filename">
+            <p>Converting, Please wait....</p>
+        </div>
+
+        <div class="slideshow" *ngIf="images.length > 0" >
+            <div class="swiper-container" [swiper]="config" *ngIf="images.length > 0" >
+                    <div class="swiper-wrapper">
+                        <div *ngFor="let slide of images" class="swiper-slide">
+                            <div class="imgage-container">
+                                <img [src]="slide" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-scrollbar"></div>
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+              </div>
+        </div>
+    </mat-card-content>
+</mat-card>

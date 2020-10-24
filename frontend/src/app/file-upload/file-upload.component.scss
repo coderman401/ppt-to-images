@@ -1,0 +1,40 @@
+
+.card {
+    margin: 1rem;
+    mat-card-title {
+        line-height: 1.3;
+    }
+    .form {
+        margin: 1rem 0;
+    }
+    .progress {
+        display: flex;
+        align-items: center;
+        p { flex-basis: 3rem; padding-left: 0.5rem;}
+    }
+    .progress-bar {
+        margin: 0.5rem;
+    }
+    .filename {
+        display: flex;
+        align-items: baseline;
+        p {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .slideshow {
+        padding: 1rem;
+        max-width: 550px;
+        max-height: 400px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+p {
+    margin: 0;
+}
+
