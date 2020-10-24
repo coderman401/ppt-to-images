@@ -11,13 +11,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Setup for Windows
 Download and install required libreries
 
-    => [LiberOffice](https://www.libreoffice.org/download/download/)
+1) [LiberOffice](https://www.libreoffice.org/download/download/)
 
-    => [Ghostscript](https://www.ghostscript.com/download.html)
+2) [Ghostscript](https://www.ghostscript.com/download.html)
 
 ## Setup for Ubuntu
 Download Required Libreries
 
-    => `apt-get install libreoffice`
+1) `apt-get install libreoffice`
 
-    => `apt-get install ghostscript`
+2) `apt-get install ghostscript`
