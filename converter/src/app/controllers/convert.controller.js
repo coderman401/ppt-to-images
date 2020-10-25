@@ -16,7 +16,12 @@ const addTask = (request, response) => {
     const convert = new pptConvert(file);
     convert.start().then((result) => {
         if (result.split(';') && result.split(';')[0] == 'ok') {
-            response.json({'status': true, 'message': result});
+            const res = result.split(';');
+            let images = [];
+            for(let i= 1; i <= res[2]; i++) {
+                images.push(`http://localhost:8080/slideshows/${res[1]}_${i}.jpg`);
+            }
+            response.json({'status': true, 'message': result, 'total_page': res[2], 'images': images});
         }
     }).catch(err => {
         console.log(err);

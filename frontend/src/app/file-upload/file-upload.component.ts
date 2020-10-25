@@ -97,10 +97,8 @@ export class FileUploadComponent {
     convertCall(filename: string) {
         this.fileService.convertProcess(filename).subscribe((response) => {
             if (response.status) {
-                const res = response.message.split(';');
-                for (let index = 1; index <= res[2]; index++) {
-                    this.images.push(`${this.slideShowUrl}${res[1]}_${index}.jpg`);
-                }
+                console.log(response);
+                this.images = response.images;
             }
             this.converting = false;
             this.slideshow = true;
