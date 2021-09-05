@@ -12,7 +12,7 @@ import { SwiperOptions } from 'swiper';
 })
 export class FileUploadComponent {
 
-    @ViewChild('fileInputRead', {static: true}) fileInputRead: { nativeElement: { [x: string]: File; click?: any; }; };
+    @ViewChild('fileInputRead', { static: true }) fileInputRead: { nativeElement: { [x: string]: File; click?: any; }; };
 
     file: File | null = null;
     name = '';
@@ -59,26 +59,26 @@ export class FileUploadComponent {
         this.subscribe$ = this.fileService.uploadFile(this.file, headersData).subscribe((event: HttpEvent<any>) => {
             this.images = [];
             switch (event.type) {
-              case HttpEventType.Sent:
-                this.state = true;
-                break;
-              case HttpEventType.UploadProgress:
-                const total = event.total;
-                const loaded = event.loaded;
+                case HttpEventType.Sent:
+                    this.state = true;
+                    break;
+                case HttpEventType.UploadProgress:
+                    const total = event.total;
+                    const loaded = event.loaded;
 
-                this.progress = Math.round(loaded / total * 100);
-                if (this.progress === 100) {
-                    this.showSnakbar('File uploaded successfully!');
-                }
-                break;
-              case HttpEventType.Response:
-                if (event.body.status) {
-                    if (event.body.file) {
-                        this.converting = true;
-                        this.convertCall(event.body.file);
+                    this.progress = Math.round(loaded / total * 100);
+                    if (this.progress === 100) {
+                        this.showSnakbar('File uploaded successfully!');
                     }
-                }
-                this.resetFileProgress();
+                    break;
+                case HttpEventType.Response:
+                    if (event.body.status) {
+                        if (event.body.file) {
+                            this.converting = true;
+                            this.convertCall(event.body.file);
+                        }
+                    }
+                    this.resetFileProgress();
             }
         });
     }

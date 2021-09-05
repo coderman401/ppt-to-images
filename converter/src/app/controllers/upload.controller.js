@@ -22,22 +22,22 @@ const doPost = (request, response, next) => {
     let ext = common.getExt(name);
     let fileName = common.getFileName() + ext;
     let file = uploadPath + fileName;
-    fileStream = config.fs.createWriteStream(file , {
+    fileStream = config.fs.createWriteStream(file, {
         flags: 'w'
     });
 
     request.pipe(fileStream);
 
     // when the request is finished, and all its data is written
-    fileStream.on('close', function() {
+    fileStream.on('close', function () {
         // can do something else with the uploaded file here
-        response.json({'status': 'ok', 'file': fileName, 'meassage': 'file uploaded successfully' });
+        response.json({ 'status': 'ok', 'file': fileName, 'meassage': 'file uploaded successfully' });
         response.end();
         return;
     });
 
     // in case of I/O error - finish the request
-    fileStream.on('error', function(err) {
+    fileStream.on('error', function (err) {
         console.log("fileStream error", err);
         response.writeHead(500, "File error");
         response.end();

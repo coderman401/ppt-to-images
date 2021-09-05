@@ -32,10 +32,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ],
     providers: [
         {
-          provide: SWIPER_CONFIG,
-          useValue: DEFAULT_SWIPER_CONFIG
+            provide: SWIPER_CONFIG,
+            useValue: DEFAULT_SWIPER_CONFIG
         },
         FileService
-      ]
+    ]
 })
 export class FileUploadModule { }

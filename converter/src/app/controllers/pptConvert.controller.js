@@ -23,7 +23,7 @@ class pptConvert {
     start() {
         return new Promise(resolve => {
             const fileSrc = this.file;
-            const ext =  common.getExt(fileSrc);
+            const ext = common.getExt(fileSrc);
 
             convertToPDF(fileSrc, ext).then((pdfFile) => {
                 pdfToImages(pdfFile).then((str) => {
@@ -31,7 +31,7 @@ class pptConvert {
                 }).catch((error) => {
                     console.log('Error: ', error);
                 });
-            }).catch((err)=> {
+            }).catch((err) => {
                 console.log('Error converting pdf', err);
             });
         });
@@ -58,7 +58,7 @@ function convertToPDF(file, ext) {
             console.log('commandOffice', commandOffice);
             shell.exec(commandOffice, (err, stdout, stderr) => {
                 const pdf = file.replace(ext, '.pdf');
-                if(err) {
+                if (err) {
                     reject(Error(err))
                 }
                 resolve(pdf);
@@ -80,8 +80,8 @@ function pdfToImages(pdfFile) {
         const fileName = config.path.basename(pdfFile);
         const ext = common.getExt(fileName);
         const image = pdfFile.replace(ext, '');
-    
-        if(config.fs.existsSync(pdfFile)) {
+
+        if (config.fs.existsSync(pdfFile)) {
             getPdfInfo(pdfFile).then((response) => {
                 const num = parseInt(response);
                 const commandGS = `"${gs}" -dBATCH -dNOPAUSE -sDEVICE=jpeg -dJPEGQ=75 -r300 -sOutputFile="${image}_%d.jpg" "${pdfFile}"`;
@@ -108,7 +108,7 @@ function pdfToImages(pdfFile) {
  */
 function getPdfInfo(pdfFile) {
     return new Promise((resolve, reject) => {
-        if(!config.fs.existsSync(pdfFile)) {
+        if (!config.fs.existsSync(pdfFile)) {
             resolve('can\'t find pdf file');
             return;
         }

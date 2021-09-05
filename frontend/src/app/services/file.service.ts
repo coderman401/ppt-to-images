@@ -31,7 +31,7 @@ export class FileService {
     // upload file
     uploadFile(file: any, headers: any): Observable<any> {
         console.log(file);
-        return this.httpClient.post<any>(`${this.url}upload` , file, {
+        return this.httpClient.post<any>(`${this.url}upload`, file, {
             headers,
             reportProgress: true,
             observe: 'events'
@@ -39,7 +39,7 @@ export class FileService {
     }
 
     convertProcess(filename: string): Observable<any> {
-        return this.httpClient.post<any>(`${this.url}convert`, {filename});
+        return this.httpClient.post<any>(`${this.url}convert`, { filename });
     }
 
 }

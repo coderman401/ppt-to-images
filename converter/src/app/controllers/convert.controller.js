@@ -18,14 +18,14 @@ const addTask = (request, response) => {
         if (result.split(';') && result.split(';')[0] == 'ok') {
             const res = result.split(';');
             let images = [];
-            for(let i= 1; i <= res[2]; i++) {
+            for (let i = 1; i <= res[2]; i++) {
                 images.push(`http://localhost:8080/slideshows/${res[1]}_${i}.jpg`);
             }
-            response.json({'status': true, 'message': result, 'total_page': res[2], 'images': images});
+            response.json({ 'status': true, 'message': result, 'total_page': res[2], 'images': images });
         }
     }).catch(err => {
         console.log(err);
-        response.json({'status': false, 'message': 'convert fail.'});
+        response.json({ 'status': false, 'message': 'convert fail.' });
     });
 };
 

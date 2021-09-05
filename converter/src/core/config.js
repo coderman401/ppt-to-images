@@ -20,9 +20,8 @@ const config = {
     fs: fs,
     path: path,
     // vars
-    current_time : new Date().getTime(),
-    ext: ['.jpg', '.png', '.gif', '.jpeg', '.ppt', '.pptx', '.pps', '.ppsx', '.swf', '.wmv', '.asf', '.asx', '.rm', '.rmvb', '.mpg', '.mpeg', '.mpe', '.3gp', '.mov', '.mp4', '.m4v', '.avi', '.dat', '.mkv', '.flv', '.vob', '.mp3', '.wma', '.zip' ],
-    uploadPath : uploadPath,
+    current_time: new Date().getTime(),
+    uploadPath: uploadPath,
 };
 
 //exporting config

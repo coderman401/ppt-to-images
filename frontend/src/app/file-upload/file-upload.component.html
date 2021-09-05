@@ -25,22 +25,22 @@
             <p>Converting, Please wait....</p>
         </div>
 
-        <div class="slideshow" *ngIf="images.length > 0" >
-            <div class="swiper-container" [swiper]="config" *ngIf="images.length > 0" >
-                    <div class="swiper-wrapper">
-                        <div *ngFor="let slide of images" class="swiper-slide">
-                            <div class="imgage-container">
-                                <img [src]="slide" />
-                            </div>
+        <div class="slideshow" *ngIf="images.length > 0">
+            <div class="swiper-container" [swiper]="config" *ngIf="images.length > 0">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let slide of images" class="swiper-slide">
+                        <div class="imgage-container">
+                            <img [src]="slide" />
                         </div>
                     </div>
+                </div>
 
-                    <div class="swiper-scrollbar"></div>
-                    <div class="swiper-pagination"></div>
+                <div class="swiper-scrollbar"></div>
+                <div class="swiper-pagination"></div>
 
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-              </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
     </mat-card-content>
 </mat-card>
